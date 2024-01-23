@@ -12,7 +12,5 @@ Description:
 
 Bugs:
 - All known bugs have been fixed as of 4/25/2023 
-- (Not really a bug, just an admission of guilt) I am not happy with the way that I determine if the last instruction was a return statement
-  or not. Currently I just read the last line of the generated code and check to see if it begins with 'ret i32'. This works fine in practice, 
-  it just feels sloppy. 
+- (Not really a bug, just an admission of guilt) I am not happy with the way that I determine if the last instruction was a return statement or not. Currently I just read the last line of the generated code and check to see if it begins with 'ret i32'. This works fine in practice, it just feels sloppy. 
   
