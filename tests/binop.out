@@ -1,0 +1,54 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+define dso_local i32 @main() {
+  %t1 = alloca i32
+  store i32 10, i32* %t1
+  %t2 = alloca float
+  store float 0x4002666660000000, float* %t2
+  %t3 = alloca i8
+  store i8 48, i8* %t3
+  %t4 = load i32, i32* %t1
+  %t5 = load float, float* %t2
+  %t6 = sitofp i32 %t4 to float
+  %t7 = fadd float %t6, %t5
+  %t8 = load i8, i8* %t3
+  %t9 = sitofp i8 %t8 to float
+  %t10 = fadd float %t7, %t9
+  %t11 = alloca float
+  store float %t10, float* %t11
+  %t12 = load i32, i32* %t1
+  %t13 = load float, float* %t2
+  %t14 = sitofp i32 %t12 to float
+  %t15 = fsub float %t14, %t13
+  %t16 = load i8, i8* %t3
+  %t17 = sitofp i8 %t16 to float
+  %t18 = fsub float %t15, %t17
+  %t19 = alloca float
+  store float %t18, float* %t19
+  %t20 = load i32, i32* %t1
+  %t21 = load float, float* %t2
+  %t22 = sitofp i32 %t20 to float
+  %t23 = fdiv float %t22, %t21
+  %t24 = load i8, i8* %t3
+  %t25 = sitofp i8 %t24 to float
+  %t26 = fdiv float %t23, %t25
+  %t27 = alloca float
+  store float %t26, float* %t27
+  %t28 = load i32, i32* %t1
+  %t29 = load float, float* %t2
+  %t30 = sitofp i32 %t28 to float
+  %t31 = fmul float %t30, %t29
+  %t32 = load i8, i8* %t3
+  %t33 = sitofp i8 %t32 to float
+  %t34 = fmul float %t31, %t33
+  %t35 = alloca float
+  store float %t34, float* %t35
+  %t36 = load i8, i8* %t3
+  %t37 = load i32, i32* %t1
+  %t38 = sext i8 %t36 to i32
+  %t39 = srem i32 %t38, %t37
+  %t40 = alloca i32
+  store i32 %t39, i32* %t40
+  ret i32 0
+}
