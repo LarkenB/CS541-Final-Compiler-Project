@@ -1,0 +1,9 @@
+int x = 10;
+float y = 2.3;
+char z = '0'; // Decimal value is 48
+
+float add = x + y + z;
+float sub = x - y - z;
+float div = x / y / z;
+float mul = x * y * z;
+int mod = z % x;

@@ -1,0 +1,29 @@
+Author: Larken Barnes
+Date: 4/25/2023
+Course: CS541
+Assignment: Program 4: LLVM Code-Generator
+
+Requires: flex bison llvm
+To build: run make
+To run: ./c2ll < filename.in
+
+Description:
+        The goal of this program is to generate LLVM IR from a subset of the CLUKCS language. The program uses flex to generate a lexer,
+    and bison to generate a parser. LLVM is not required unless you want to compile the output from LLVM IR into an executable. This 
+    time around I decided to deal with type errors different than the last project. When an error occurs, I now create variables of type
+    Unknown that slowly spreads throughout the remainder of the generated code. This means that generated code with type errors is not
+    guranteed to be valid, but allows the compiler to attempt to check for multiple errors. The two key functions for this code can be 
+    found at the top of parser.y. The functions are named 'cast_to_lhs_type' and 'cast_for_binop'. These are used to implicitly cast variables 
+    when needed. I also chose to enforce the LHS of assignments to be variables by changing the rule for these expressions to only accept 
+    identifiers as the first arg. This approach madeit easier to deal with such issues because it prevents things like '10 = 5' from reaching 
+    the parser. There is also a folder with a few tools in the form of shell scripts. 'compile.sh' compiles the program fully from a source file 
+    to an executable. It does so by just using the c2ll program from the directory above it, so make sure to run make in the parent directory. 
+    The other script, 'test.sh' just runs the program compiled by 'compile.sh' and spits out the exit code - this was the easiest way to test 
+    that arithmetic was being generated correctly.
+
+Bugs:
+- All known bugs have been fixed as of 4/25/2023 
+- (Not really a bug, just an admission of guilt) I am not happy with the way that I determine if the last instruction was a return statement
+  or not. Currently I just read the last line of the generated code and check to see if it begins with 'ret i32'. This works fine in practice, 
+  it just feels sloppy. 
+  

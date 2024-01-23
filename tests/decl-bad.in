@@ -1,0 +1,2 @@
+int y = x;
+float y = 0.1;

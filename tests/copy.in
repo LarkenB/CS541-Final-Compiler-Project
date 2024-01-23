@@ -1,0 +1,4 @@
+float x;
+int y;
+char z;
+x = y = z = 4;

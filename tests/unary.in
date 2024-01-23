@@ -1,0 +1,4 @@
+int x = 1;
+int y = -x;
+char q = -'0';
+float z = -x;

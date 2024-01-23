@@ -1,0 +1,5 @@
+int result;
+float num = 2;
+int   denom = 3;
+result = (num / denom) * 4;
+return result;
